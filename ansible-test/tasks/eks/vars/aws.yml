@@ -1,13 +1,13 @@
 ansible_connection: local
 
-vpc_name: bju-vpc-test
-vpn_name: bju-vpn-test
-vpc_key: bju-vpc-test
-vpc_dns_zone: bju-vpc-test
+vpc_name: demo-vpc-test
+vpn_name: demo-vpn-test
+vpc_key: demo-vpc-test
+vpc_dns_zone: demo-vpc-test
 
 aws_region: us-east-1 
-aws_access_key: AKIA2MUEV6DBQYIL3Z3G
-aws_secret_key: 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
+aws_access_key: AKIAVHQVCS3PRVES2UHV
+aws_secret_key: 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
 
 vpc_cidr_block: 10.1.0.0/16
 vpc_asn: 64512

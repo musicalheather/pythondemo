@@ -1,28 +1,28 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: "atc-deployment"
-  namespace: "atc-project"
+  name: "demo-deployment"
+  namespace: "demo-project"
 spec:
   replicas: 5
   template:
     metadata:
       labels:
-        app: "atc"
+        app: "demo"
     spec:
       containers:
-      - image: 714316574915.dkr.ecr.us-east-1.amazonaws.com/atcproject:$CIRCLE_BUILD_NUM
+      - image: 714316574915.dkr.ecr.us-east-1.amazonaws.com/demoproject:$CIRCLE_BUILD_NUM
         imagePullPolicy: Always
-        name: "atc"
+        name: "demo"
         ports:
         - containerPort: 8000
         env:
           - name: DBHOST
-            value: "atc-database.c53bbjeekoxg.us-east-1.rds.amazonaws.com" #{{ rds_host }}
+            value: "demo-database.c53bbjeekoxg.us-east-1.rds.amazonaws.com" #{{ rds_host }}
           - name: DBPORT
             value: "8000" #{{ rds_port }}
           - name: DBNAME
-            value: "atc-database" #{{ rds_db_name }}
+            value: "demo-database" #{{ rds_db_name }}
           - name: PGUSER
             value: "postgres" #{{ rds_user }}
           - name: PGPASS
