@@ -11,14 +11,14 @@ spec:
         app: "demo"
     spec:
       containers:
-      - image: 714316574915.dkr.ecr.us-east-1.amazonaws.com/demoproject:$CIRCLE_BUILD_NUM
+      - image: 359747720927.dkr.ecr.us-east-1.amazonaws.com/demoproject:$CIRCLE_BUILD_NUM
         imagePullPolicy: Always
         name: "demo"
         ports:
         - containerPort: 8000
         env:
           - name: DBHOST
-            value: "demo-database.c53bbjeekoxg.us-east-1.rds.amazonaws.com" #{{ rds_host }}
+            value: "demo-database.cehndwj7vnlb.us-east-1.rds.amazonaws.com" #{{ rds_host }}
           - name: DBPORT
             value: "8000" #{{ rds_port }}
           - name: DBNAME

@@ -1,18 +1,18 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: "atc-ingress"
-  namespace: "atc-project"
+  name: "demo-ingress"
+  namespace: "demo-project"
   annotations:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
   labels:
-    app: atc-ingress
+    app: demo-ingress
 spec:
   rules:
     - http:
         paths:
           - path: /*
             backend:
-              serviceName: "service-atc"
+              serviceName: "service-demo"
               servicePort: 80

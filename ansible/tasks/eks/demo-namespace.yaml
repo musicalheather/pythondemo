@@ -11,7 +11,7 @@ metadata:
 
 # kubectl delete -f demo-ingress.yaml && kubectl delete -f demo-service.yaml && kubectl delete -f demo-deployment.yaml && kubectl delete -f demo-namespace.yaml
 # kubectl set image deployments/deployment-name app-name=repo:version -n your-namespace
-# kubectl set image deployments/demo-deployment demo=714316574915.dkr.ecr.us-east-1.amazonaws.com/demoproject:$CIRCLE_BUILD_NUM -n demo-project
+# kubectl set image deployments/demo-deployment demo=359747720927.dkr.ecr.us-east-1.amazonaws.com/demoproject:$CIRCLE_BUILD_NUM -n demo-project
 # https://docs.ansible.com/ansible/2.5/modules/k8s_raw_module.html
 
 # kubectl get ingress/demo-ingress -n demo-project
@@ -20,5 +20,5 @@ metadata:
 # kubectl cp /tmp/foo <some-namespace>/<some-pod>:/tmp/bar
 #kubectl get pods -A
 #kubectl exec -it demo-test-deployment-6477486977-4rnbx -n demo-project-test -- /bin/bash
-#psql --host demo-database.c53bbjeekoxg.us-east-1.rds.amazonaws.com -d demo_project
+#psql --host demo-database.cehndwj7vnlb.us-east-1.rds.amazonaws.com -d demo_project
 
