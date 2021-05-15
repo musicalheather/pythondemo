@@ -3,7 +3,7 @@ from django.urls import include, path
 from . import views
 
 urlpatterns = [
-    path('polls/', include('polls.urls')),
+    path('tempconvert/', include('tempconvert.urls')),
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
 ]
