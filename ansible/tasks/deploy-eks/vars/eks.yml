@@ -9,8 +9,8 @@ k8s_ingress: "demo-ingress"
 k8s_service: "demo-service"
 k8s_deployment: "demo-deployment"
 
-k8s_name: "atc"
-k8s_image: 359747720927.dkr.ecr.us-east-1.amazonaws.com/atc
+k8s_name: "demo"
+k8s_image: 359747720927.dkr.ecr.us-east-1.amazonaws.com/demo
 k8s_version: 5
 k8s_exposed_port: 80
 k8s_container_port: 8000
