@@ -1,1 +1,1 @@
-create database atc_project;
+create database demo_project;

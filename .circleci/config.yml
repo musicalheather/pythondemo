@@ -118,7 +118,7 @@ jobs:
       - run:
           name: docker push
           command: |
-            docker build . -t atc
+            docker build . -t demo
             docker tag demo 359747720927.dkr.ecr.us-east-1.amazonaws.com/atcproject:$CIRCLE_BUILD_NUM
             $(aws ecr get-login)
             docker push 359747720927.dkr.ecr.us-east-1.amazonaws.com/atcproject:$CIRCLE_BUILD_NUM
