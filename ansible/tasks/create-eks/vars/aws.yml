@@ -6,8 +6,8 @@ vpc_key: demo4-vpc
 vpc_dns_zone: demo4-vpc
 
 aws_region: us-east-1 
-aws_access_key: AKIAVHQVCS3PRVES2UHV
-aws_secret_key: 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
+aws_access_key: 
+aws_secret_key: 
 
 vpc_cidr_block: 10.0.0.0/16
 vpc_asn: 64512
