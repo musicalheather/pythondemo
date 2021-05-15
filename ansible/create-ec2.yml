@@ -123,7 +123,7 @@
     - name: create rds subnet group
       rds_subnet_group:
         state: present
-        name: atc-db-subnet
+        name: demo-db-subnet
         description: RDS DB Subnet
         subnets:
           - "{{ create_private_vpc_subnet.subnet.id }}"
@@ -132,23 +132,23 @@
     - name: create an rds database in the private subnet
       rds:
         command: create
-        instance_name: atc-database
+        instance_name: demo-database
         db_engine: postgres
         size: 10
         instance_type: db.t3.small
-        db_name: atc_project
+        db_name: demo_project
         username: postgres
         password: postgres
         port: 5432
         region: "{{ aws_region }}"
         publicly_accessible: no
-        subnet: atc-db-subnet
+        subnet: demo-db-subnet
     
     - name: create an eks cluster
       shell: |
         eksctl create cluster \
-        --name atc \
-        --version 1.14 \
+        --name demo \
+        --version 1.19 \
         --nodegroup-name standard-workers \
         --node-type t3.medium \
         --nodes 1 \
