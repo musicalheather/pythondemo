@@ -6,6 +6,9 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/group.name: demo-project
+    alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/subnets: subnet-06d114127be427b6d, subnet-06fb72bf0e5dd314e,
   labels:
     app: demo-ingress
 spec:
@@ -15,5 +18,7 @@ spec:
       - path: /*
         pathType: Prefix
         backend:
-          serviceName: demo
-          servicePort: 80
+          service:
+            name: demo
+            port:
+              number: 8080
