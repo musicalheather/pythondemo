@@ -73,52 +73,9 @@ jobs:
           destination: test-reports
 
       - run:
-          name: run sonar analysis
-          command: |
-            sudo apt-get install curl software-properties-common
-            curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -
-            sudo apt install -y nodejs
-            export SONAR_SCANNER_VERSION=4.0.0.1744
-            export SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux
-            rm -rf $SONAR_SCANNER_HOME
-            mkdir -p $SONAR_SCANNER_HOME
-            curl -sSLo $HOME/.sonar/sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$SONAR_SCANNER_VERSION-linux.zip
-            unzip $HOME/.sonar/sonar-scanner.zip -d $HOME/.sonar/
-            rm $HOME/.sonar/sonar-scanner.zip
-            export PATH=$SONAR_SCANNER_HOME/bin:$PATH
-            export SONAR_SCANNER_OPTS="-server"
-
-            if [[ -z "${CIRCLE_PULL_REQUEST}" ]]; then
-              sonar-scanner \
-              -Dsonar.projectKey=<project> \
-              -Dsonar.organization=bjucps \
-              -Dsonar.sources=. \
-              -Dsonar.host.url=https://sonarcloud.io \
-              -Dsonar.exclusions=venv/**,ATC_APP/venv/** \
-              -Dsonar.login=<login> \
-              -Dsonar.python.coverage.reportPaths=test-reports/nosecover.xml \
-              -Dsonar.python.xunit.reportPaths=nosetests.xml
-            else
-              echo "checking pull request..."
-              export PR_BUILD_NO=$(python -c "print('$CIRCLE_PULL_REQUEST'.split('/')[-1])")
-              sonar-scanner \
-              -Dsonar.projectKey=bjucps_cps420-project-drop-table-software_engineering \
-              -Dsonar.organization=bjucps \
-              -Dsonar.sources=. \
-              -Dsonar.host.url=https://sonarcloud.io \
-              -Dsonar.login=<login>> \
-              -Dsonar.exclusions=venv/**,ATC_APP/venv/** \
-              -Dsonar.pullrequest.key=$PR_BUILD_NO \
-              -Dsonar.pullrequest.branch=$CIRCLE_BRANCH \
-              -Dsonar.pullrequest.base=master \
-              -Dsonar.python.coverage.reportPaths=test-reports/nosecover.xml \
-              -Dsonar.python.xunit.reportPaths=nosetests.xml
-            fi
-
-      - run:
           name: docker push
           command: |
             docker build . -t demo
-            docker tag demo 359747720927.dkr.ecr.us-east-1.amazonaws.com/atcproject:$CIRCLE_BUILD_NUM
+            docker tag demo 359747720927.dkr.ecr.us-east-1.amazonaws.com/demoproject:$CIRCLE_BUILD_NUM
             $(aws ecr get-login)
-            docker push 359747720927.dkr.ecr.us-east-1.amazonaws.com/atcproject:$CIRCLE_BUILD_NUM
+            docker push 359747720927.dkr.ecr.us-east-1.amazonaws.com/demoproject:$CIRCLE_BUILD_NUM
