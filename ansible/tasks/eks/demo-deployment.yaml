@@ -1,17 +1,20 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: "demo-deployment"
   namespace: "demo-project"
 spec:
   replicas: 5
+  selector:
+    matchLabels:
+      app: demoproject
   template:
     metadata:
       labels:
-        app: "demo"
+        app: "demoproject"
     spec:
       containers:
-      - image: 359747720927.dkr.ecr.us-east-1.amazonaws.com/demoproject:$CIRCLE_BUILD_NUM
+      - image: 359747720927.dkr.ecr.us-east-1.amazonaws.com/demoproject:v1
         imagePullPolicy: Always
         name: "demo"
         ports:

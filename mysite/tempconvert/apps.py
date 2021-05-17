@@ -4,8 +4,8 @@ from __future__ import unicode_literals
 from django.apps import AppConfig
 
 
-class TempconvertConfig(AppConfig):
-    name = 'tempconvert'
+#class TempconvertConfig(AppConfig):
+#    name = 'tempconvert'
 
 #def convert_temperature(val, old_scale, new_scale):
 #    """
