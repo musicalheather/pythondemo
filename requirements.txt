@@ -1,5 +1,5 @@
-django===3.2.3
-psycopg2===2.8.3
+django==3.2.3
+psycopg2==2.8.3
 django-crispy-forms==1.8.0
 django-nose==1.4.6
 coverage==4.5.4
@@ -7,5 +7,3 @@ django-prometheus==1.1.0
 requests==2.22.0
 sentry-sdk==0.13.2
 python-dateutil==2.8.1
-scipy == 1.6.3
-sqlite == 3.35.5
