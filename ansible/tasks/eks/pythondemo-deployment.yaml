@@ -14,19 +14,8 @@ spec:
         app: "demoproject"
     spec:
       containers:
-      - image: 359747720927.dkr.ecr.us-east-1.amazonaws.com/demoproject:23
+      - image: 359747720927.dkr.ecr.us-east-1.amazonaws.com/demoproject:28
         imagePullPolicy: Always
         name: "pythondemo"
         ports:
         - containerPort: 8080
-        env:
-          - name: DBHOST
-            value: "demo-database.cehndwj7vnlb.us-east-1.rds.amazonaws.com" #{{ rds_host }}
-          - name: DBPORT
-            value: "8000" #{{ rds_port }}
-          - name: DBNAME
-            value: "demo-database" #{{ rds_db_name }}
-          - name: PGUSER
-            value: "postgres" #{{ rds_user }}
-          - name: PGPASS
-            value: "postgres" #{{ rds_pass }}

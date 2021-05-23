@@ -7,14 +7,13 @@ metadata:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
     kubernetes.io/ingress.class: alb
-    alb.ingress.kubernetes.io/subnets: subnet-06d114127be427b6d, subnet-06fb72bf0e5dd314e,
   labels:
     app: pythondemo-ingress
 spec:
   rules:
   - http:
       paths:
-      - path: /*
+      - path: /
         pathType: Prefix
         backend:
           service:
