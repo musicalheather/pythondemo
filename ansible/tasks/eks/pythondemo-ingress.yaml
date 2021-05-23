@@ -1,16 +1,15 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: "demo-ingress"
-  namespace: "demo-project"
+  name: "pythondemo-ingress"
+  namespace: "pythondemo"
   annotations:
-    kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/group.name: demo-project
-    alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/target-type: ip
+    kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/subnets: subnet-06d114127be427b6d, subnet-06fb72bf0e5dd314e,
   labels:
-    app: demo-ingress
+    app: pythondemo-ingress
 spec:
   rules:
   - http:
@@ -19,6 +18,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: demo
+            name: pythondemo
             port:
               number: 8080

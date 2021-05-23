@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "demo-deployment"
-  namespace: "demo-project"
+  name: "pythondemo-deployment"
+  namespace: "pythondemo"
 spec:
   replicas: 5
   selector:
@@ -16,7 +16,7 @@ spec:
       containers:
       - image: 359747720927.dkr.ecr.us-east-1.amazonaws.com/demoproject:23
         imagePullPolicy: Always
-        name: "demo"
+        name: "pythondemo"
         ports:
         - containerPort: 8080
         env:

@@ -146,14 +146,4 @@
     
     - name: create an eks cluster
       shell: |
-        eksctl create cluster \
-        --name demo \
-        --version 1.19 \
-        --nodegroup-name standard-workers \
-        --node-type t3.medium \
-        --nodes 1 \
-        --nodes-min 1 \
-        --nodes-max 2 \
-        --node-ami auto \
-        --vpc-private-subnets "{{ create_private_vpc_subnet.subnet.id }}","{{ create_private_vpc_subnet_2.subnet.id }}" \
-        --vpc-public-subnets "{{ create_public_vpc_subnet.subnet.id }}","{{ create_public_vpc_subnet_2.subnet.id }}" \
+        eksctl create cluster --name pythondemo

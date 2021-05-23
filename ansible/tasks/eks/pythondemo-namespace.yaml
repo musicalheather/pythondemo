@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: "pythondemo"
+
+#commands to push updates
+#aws ecr get-login
+
+#Don't use these commands in production, do a rolling deploy! Update the image instead
+# kubectl apply -f pythondemo-namespace.yaml && kubectl apply -f pythondemo-deployment.yaml && kubectl apply -f pythondemo-service.yaml && kubectl apply -f pythondemo-ingress.yaml && kubectl get ingress/pythondemo-ingress -n pythondemo
+
+# kubectl delete -f pythondemo-ingress.yaml && kubectl delete -f pythondemo-service.yaml && kubectl delete -f pythondemo-deployment.yaml && kubectl delete -f pythondemo-namespace.yaml
+# kubectl set image deployments/deployment-name app-name=repo:version -n your-namespace
+# kubectl set image deployments/pythondemo-deployment pythondemo=359747720927.dkr.ecr.us-east-1.amazonaws.com/pythondemoproject:21 -n pythondemo-project
+# https://docs.ansible.com/ansible/2.5/modules/k8ks_raw_module.html
+
+# kubectl get ingress/pythondemo-ingress -n pythondemo-project
+# kubectl get pods -n pythondemo-project
+# kubectl logs pythondemo-deployment-79c4d749d6-58drh -n pythondemo-project
+# kubectl cp /tmp/foo <some-namespace>/<some-pod>:/tmp/bar
+#kubectl get pods -A
+#kubectl exec -it pythondemo-test-deployment-6477486977-4rnbx -n pythondemo-project-test -- /bin/bash
+#psql --host pythondemo-database.cehndwj7vnlb.us-east-1.rds.amazonaws.com -d pythondemo_project
+
