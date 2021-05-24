@@ -11,7 +11,7 @@ metadata:
 
 # kubectl delete -f pythondemo-ingress.yaml && kubectl delete -f pythondemo-service.yaml && kubectl delete -f pythondemo-deployment.yaml && kubectl delete -f pythondemo-namespace.yaml
 # kubectl set image deployments/deployment-name app-name=repo:version -n your-namespace
-# kubectl set image deployments/pythondemo-deployment pythondemo=359747720927.dkr.ecr.us-east-1.amazonaws.com/demoproject:44 -n pythondemo
+# kubectl set image deployments/pythondemo-deployment pythondemo=359747720927.dkr.ecr.us-east-1.amazonaws.com/demoproject:45 -n pythondemo
 
 # https://docs.ansible.com/ansible/2.5/modules/k8ks_raw_module.html
 
@@ -20,6 +20,6 @@ metadata:
 # kubectl logs pythondemo-deployment-579b9bcddd-9dqzj -n pythondemo
 # kubectl cp /tmp/foo <some-namespace>/<some-pod>:/tmp/bar
 #kubectl get pods -A
-#kubectl exec -it pythondemo-deployment-579b9bcddd-9dqzj -n pythondemo -- /bin/bash
+#kubectl exec -it pythondemo-deployment-76dd5f5879-2vqxh -n pythondemo -- /bin/bash
 #psql --host pythondemo-database.cehndwj7vnlb.us-east-1.rds.amazonaws.com -d pythondemo_project
 
