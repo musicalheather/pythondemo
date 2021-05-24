@@ -3,11 +3,7 @@ kind: Service
 metadata:
   name: "service-pythondemo"
   namespace: "pythondemo"
-  annotations:
-    service.beta.kubernetes.io/aws-load-balancer-type: external
-    service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip
-    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
-    alb.ingress.kubernetes.io/subnets: subnet-0883314fa80955a7d, subnet-04557b2b335d4094d
+#  annotations:
 
 spec:
   ports:
