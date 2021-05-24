@@ -8,7 +8,7 @@ metadata:
     alb.ingress.kubernetes.io/target-type: ip
     kubernetes.io/ingress.class: alb
   labels:
-    app: pythondemo-ingress
+    app: pythondemo
 spec:
   rules:
   - http:
