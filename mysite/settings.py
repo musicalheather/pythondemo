@@ -25,7 +25,7 @@ SECRET_KEY = 'n*csdecre=@h2jb=vwzm#(#(^1ykdfxz@nt)30-nwj8m$0+77r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [k8s-pythonde-pythonde-dbedfd08b2-1865974751.us-east-1.elb.amazonaws.com, localhost]
+ALLOWED_HOSTS = ['k8s-pythonde-pythonde-dbedfd08b2-1865974751.us-east-1.elb.amazonaws.com', 'localhost']
 
 
 # Application definition
