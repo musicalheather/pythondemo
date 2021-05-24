@@ -1,9 +1,9 @@
 FROM python:3.7
 
-COPY . /app
+RUN mkdir /app
 WORKDIR /app
+ADD . /app/
+RUN pip install -r app/requirements.txt
 
-RUN apt update && apt install -y postgresql-client
-RUN pip3 install -r requirements.txt
-
-CMD chmod +x start.sh && ./start.sh
+EXPOSE 5000
+CMD ["python3.7", "app/main.py"]
