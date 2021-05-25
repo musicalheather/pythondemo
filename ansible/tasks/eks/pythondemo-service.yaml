@@ -1,15 +1,32 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: "service-pythondemo"
-  namespace: "pythondemo"
-#  annotations:
-
+  namespace: pythondemo
+  name: service-pythondemo
 spec:
   ports:
     - port: 80
-      targetPort: 8080
+      targetPort: 80
       protocol: TCP
-  type: LoadBalancer
+  type: NodePort
   selector:
-    app: "pythondemo"
+    app.kubernetes.io/name: tempconvert
+    
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: "service-pythondemo"
+#  namespace: "pythondemo"
+#  annotations:
+#    service.beta.kubernetes.io/aws-load-balancer-type: external
+#    service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip
+#    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
+#    alb.ingress.kubernetes.io/subnets: subnet-0883314fa80955a7d, subnet-04557b2b335d4094d
+
+#spec:
+#  ports:
+#    - port: 80
+#      targetPort: 8080
+#      protocol: TCP
+#  selector:
+#    app: tempconvert

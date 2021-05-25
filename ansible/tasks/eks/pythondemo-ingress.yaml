@@ -1,16 +1,36 @@
-apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: "pythondemo-ingress"
-  namespace: "pythondemo"
+  namespace: pythondemo
+  name: pythondemo-ingress
   annotations:
+    kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
-    kubernetes.io/ingress.class: alb
-    service.beta.kubernetes.io/aws-load-balancer-type: external
-    service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip
-    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
-    alb.ingress.kubernetes.io/subnets: subnet-0883314fa80955a7d, subnet-04557b2b335d4094d
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: pythondemo
+                port: 
+                  number: 80
+
+
+#apiVersion: networking.k8s.io/v1
+#kind: Ingress
+#metadata:
+#  name: "pythondemo-ingress"
+#  namespace: "pythondemo"
+#  annotations:
+#    alb.ingress.kubernetes.io/scheme: internet-facing
+#    kubernetes.io/ingress.class: alb
+#    service.beta.kubernetes.io/aws-load-balancer-type: external
+#    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
+#    alb.ingress.kubernetes.io/subnets: subnet-0fa1dc4214022d4a5, subnet-085811f49984f5a84
 
   labels:
     app: pythondemo

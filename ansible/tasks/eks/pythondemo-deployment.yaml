@@ -14,7 +14,7 @@ spec:
         app: "demoproject"
     spec:
       containers:
-      - image: 359747720927.dkr.ecr.us-east-1.amazonaws.com/demoproject:28
+      - image: 359747720927.dkr.ecr.us-east-1.amazonaws.com/demoproject:48
         imagePullPolicy: Always
         name: "pythondemo"
         ports:
