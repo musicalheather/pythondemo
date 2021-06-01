@@ -78,4 +78,4 @@ jobs:
             docker build . -t demo
             docker tag demo 359747720927.dkr.ecr.us-east-1.amazonaws.com/demoproject:$CIRCLE_BUILD_NUM
             $(aws ecr get-login)
-            docker push 359747720927.dkr.ecr.us-east-1.amazonaws.com/demoproject:$CIRCLE_BUILD_NUM
+#            docker push 359747720927.dkr.ecr.us-east-1.amazonaws.com/demoproject:$CIRCLE_BUILD_NUM
