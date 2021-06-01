@@ -4,30 +4,20 @@ from scipy.constants import convert_temperature
 
 app = Flask(__name__)
 
+def convert (value, format):
+    collector = list()
+
+    for to_format in ("celsius", "fahrenheit", "kelvin", "rankine"):
+        collector.append(round(value if format == to_format else convert_temperature(value, format, to_format), 2))
+    return collector
 @app.route("/")
 def index():
 # Celsius to Fahrenheit
-    celsius = request.args.get('celsius', type=int)
-    fahrenheit = request.args.get('fahrenheit', type=int)
-    kelvin = request.args.get('kelvin', type=int)
-    rankine = request.args.get('rankine', type=int)
-
-    if celsius:
-        fahrenheit = float(convert_temperature(celsius, 'Celsius', 'Fahrenheit'))
-        kelvin = float(convert_temperature(celsius, 'Celsius', 'Kelvin'))
-        rankine = float(convert_temperature(celsius, 'Celsius', 'Rankine'))
-    if fahrenheit:
-        celsius = float(convert_temperature(fahrenheit, 'Fahrenheit', 'Celsius'))
-        rankine = float(convert_temperature(fahrenheit, 'Fahrenheit', 'Rankine'))
-        kelvin = float(convert_temperature(fahrenheit, 'Fahrenheit', 'Kelvin'))
-    if kelvin:
-        celsius = float(convert_temperature(kelvin, 'Kelvin', 'Celsius'))
-        fahrenheit = float(convert_temperature(kelvin, 'Kelvin', 'Fahrenheit'))
-        rankine = float(convert_temperature(kelvin, 'Kelvin', 'Rankine'))
-    if rankine:
-        kelvin = float(convert_temperature(rankine, 'Rankine', 'Kelvin'))
-        fahrenheit = float(convert_temperature(rankine, 'Rankine', 'Fahrenheit'))
-        celsius = float(convert_temperature(rankine, 'Rankine', 'Fahrenheit'))
+    try:
+        params = [{'format': x[0], 'value': float(x[1])} for x in request.args.items() if x[1]][0]
+        celsius, fahrenheit, kelvin, rankine = convert(**params)
+    except IndexError:
+        celsius = fahrenheit = kelvin = rankine = None
 
     return (
         """<form action="" method="get">
@@ -55,4 +45,4 @@ def index():
     )
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=8080, debug=True)
+    app.run(host="127.0.0.1", port=8080, debug=False)
