@@ -9,13 +9,23 @@ def index():
     celsius = request.args.get("celsius", "")
     fahrenheit = request.args.get("fahrenheit", "")
     kelvin = request.args.get("kelvin", "")
+    rankin = request.args.get("rankin", "")
     if celsius:
         fahrenheit = fahrenheit_from(celsius)
         kelvin = kelvin_from(celsius)
+        rankin = rankin_from(celsius)
     if fahrenheit:
         celsius = celsius_from(fahrenheit)
+        rankin = rankin_from(fahrenheit)
+        kelvin = kelvin_from(fahrenheit)
     if kelvin:
-        kelvin = kelvin_from(celsius)
+        celsius = celsius_from(kelvin)
+        fahrenheit = fahrenheit_from(kelvin)
+        rankin = rankin_from(kelvin)
+    if kelvin:
+        rankin = rankin_from(kelvin)
+        fahrenheit = fahrenheit_from(kelvin)
+        celsius = celsius_from(kelvin)
 
     return (
         """<form action="" method="get">
