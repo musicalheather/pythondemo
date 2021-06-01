@@ -2,12 +2,12 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: game-2048
+  name: demo
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deployment-2048
+  name: deployment-demo
 spec:
   selector:
     matchLabels:
@@ -19,7 +19,7 @@ spec:
         app.kubernetes.io/name: demo
     spec:
       containers:
-      - image: 359747720927.dkr.ecr.us-east-1.amazonaws.com/demoproject
+      - image: 359747720927.dkr.ecr.us-east-1.amazonaws.com/demoproject:67
         imagePullPolicy: Always
         name: demo
         ports:
@@ -28,7 +28,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: service-2048
+  name: service-demo
 spec:
   ports:
     - port: 80
@@ -36,12 +36,12 @@ spec:
       protocol: TCP
   type: NodePort
   selector:
-    app.kubernetes.io/name: app-2048
+    app.kubernetes.io/name: app-demo
 ---
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: ingress-2048
+  name: ingress-demo
   annotations:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
@@ -52,5 +52,5 @@ spec:
         paths:
           - path: /*
             backend:
-              serviceName: service-2048
+              serviceName: service-demo
               servicePort: 80
