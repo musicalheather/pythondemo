@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import request
+from scipy.constants import convert_temperature
 
 app = Flask(__name__)
 
@@ -54,88 +55,76 @@ def index():
 
 def fahrenheit_from(celsius):
     try:
-        fahrenheit = float(celsius) * 9 / 5 + 32
-        fahrenheit = round(fahrenheit, 3)  # Round to three decimal places
+        fahrenheit = convert_temperature(np.array([celsius, fahrenheit]), 'Celsius', 'Fahrenheit')# Round to three decimal places
         return str(fahrenheit)
     except ValueError:
         return "invalid input"
 def rankine_from(celsius):
     try:
-        rankine = float(celsius) * 9 / 5 + 32
-        rankine = round(rankine, 3)  # Round to three decimal places
+        rankine = convert_temperature(np.array([rankine, celsius]), 'Rankine', 'Celsius') # Round to three decimal places
         return str(rankine)
     except ValueError:
         return "invalid input"
 def kelvin_from(celsius):
     try:
-        kelvin = float(celsius) + 273.15
-        kelvin = round(kelvin, 3)  # Round to three decimal places
+        kelvin = convert_temperature(np.array(kelvin, celsius]), 'Kelvin', 'Celsius') 
         return str(kelvin)
     except ValueError:
         return "invalid input"
 
 def celsius_from(fahrenheit):
     try:
-        celsius = float(fahrenheit) * 5 / 9 - 32
-        celsius = round(celsius, 3)  # Round to three decimal places
+        celsius = convert_temperature(np.array([fahrenheit, celsius]), 'Fahrenheit', 'Celsius') # Round to three decimal places
         return str(celsius)
     except ValueError:
         return "invalid input"
 def rankine_from(fahrenheit):
     try:
-        rankine = float(fahrenheit) * 9 / 5 + 32
-        rankine = round(rankine, 3)  # Round to three decimal places
+        rankine = convert_temperature(np.array([rankine, fahrenheit]), 'Rankin', 'Fahrenheit')
         return str(rankine)
     except ValueError:
         return "invalid input"
 def kelvin_from(fahrenheit):
     try:
-        kelvin = float(fahrenheit) + 273.15
-        kelvin = round(kelvin, 3)  # Round to three decimal places
+        kelvin = convert_temperature(np.array([kelvin, fahrenheit]), 'Kelvin', 'Fahrenheit') # Round to three decimal places
         return str(kelvin)
     except ValueError:
         return "invalid input"
 
 def celsius_from(kelvin):
     try:
-        celsius = float(fahrenheit) * 5 / 9 - 32
-        celsius = round(celsius, 3)  # Round to three decimal places
+        celsius = convert_temperature(np.array([celsius, kelvin]), 'Celsius', 'Kelvin')
         return str(celsius)
     except ValueError:
         return "invalid input"
 def rankine_from(kelvin):
     try:
-        rankine = float(fahrenheit) * 9 / 5 + 32
-        rankine = round(rankine, 3)  # Round to three decimal places
+        rankine = convert_temperature(np.array([rankine, kelvin]), 'Rankine', 'Kelvin')
         return str(rankine)
     except ValueError:
         return "invalid input"
 def fahrenheit_from(kelvin):
     try:
-        kelvin = float(kelvin) + 273.15
-        kelvin = round(kelvin, 3)  # Round to three decimal places
+        kelvin = convert_temperature(np.array([celsius, fahrenheit]), 'Celsius', 'Fahrenheit')
         return str(kelvin)
     except ValueError:
         return "invalid input"
 
 def celsius_from(rankine):
     try:
-        celsius = float(fahrenheit) * 5 / 9 - 32
-        celsius = round(celsius, 3)  # Round to three decimal places
+        celsius = convert_temperature(np.array([celsius, rankine]), 'Celsius', 'Rankine')
         return str(celsius)
     except ValueError:
         return "invalid input"
 def kelvin_from(rankine):
     try:
-        kelvin = float(rankine) * 9 / 5 + 32
-        kelvin = round(rankine, 3)  # Round to three decimal places
+        kelvin = convert_temperature(np.array([kelvin, rankine]), 'Kelvin', 'Rankine')
         return str(kelvin)
     except ValueError:
         return "invalid input"
 def fahrenheit_from(rankine):
     try:
-        fahrenheit = float(rankine) + 273.15
-        fahrenheit = round(rankine, 3)  # Round to three decimal places
+        fahrenheit = convert_temperature(np.array([fahrenheit, rankine]), 'Fahrenheit', 'Rankine')
         return str(fahrenheit)
     except ValueError:
         return "invalid input"
