@@ -11,6 +11,7 @@ def index():
     kelvin = request.args.get("kelvin", "")
     if celsius:
         fahrenheit = fahrenheit_from(celsius)
+        kelvin = kelvin_from(celsius)
     if fahrenheit:
         celsius = celsius_from(fahrenheit)
     if kelvin:
