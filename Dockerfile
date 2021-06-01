@@ -7,4 +7,4 @@ RUN apt update
 RUN pip3 install -r requirements.txt
 
 RUN chmod +x start.sh
-CMD ["start.sh"]
+CMD ["/app/start.sh"]
