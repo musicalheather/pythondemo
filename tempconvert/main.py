@@ -22,9 +22,9 @@ def index():
     return (
         <!DOCTYPE html>
         <html>
-        <head>
-        <title>"Welcome to Heather's Temperature Converter!"</title>
-        </head>
+            <head>
+                <title>"Welcome to Heather's Temperature Converter!"</title>
+            </head>
         <body>
         """<form action="" method="get">
                 Celsius temperature: <input type=text name="celsius">
