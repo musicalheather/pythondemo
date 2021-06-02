@@ -20,7 +20,6 @@ def index():
         celsius = fahrenheit = kelvin = rankine = None
 
     return (
-        + <h1>Welcome to Temperature Converter!</h1>
         """<form action="" method="get">
                 Celsius temperature: <input type=text name="celsius">
                 <input type="submit" value="Convert to Fahrenheit"><br>
