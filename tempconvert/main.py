@@ -8,7 +8,7 @@ def convert (value, format):
     collector = list()
 
     for to_format in ("celsius", "fahrenheit", "kelvin", "rankine"):
-        collector.append(round(value if format == to_format else convert_temperature(value, format, to_format), 2))
+        collector.append(value if format == to_format else convert_temperature(value, format, to_format),)
     return collector
 @app.route("/")
 def index():
