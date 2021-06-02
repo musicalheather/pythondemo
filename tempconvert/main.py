@@ -39,7 +39,7 @@ def index():
         + "Kelvin: "
         + str(kelvin)
         + "<br>"
-        + "rankine: "
+        + "Rankine: "
         + str(rankine)
         + "<br>"
     )
