@@ -42,6 +42,7 @@ def index():
         + "Rankine: "
         + str(rankine)
         + "<br>"
+        + "hi"
     )
 
 if __name__ == "__main__":
