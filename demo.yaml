@@ -20,7 +20,7 @@ spec:
         app.kubernetes.io/name: demo
     spec:
       containers:
-      - image: 359747720927.dkr.ecr.us-east-1.amazonaws.com/demoproject:70
+      - image: 359747720927.dkr.ecr.us-east-1.amazonaws.com/demoproject:71
         imagePullPolicy: Always
         name: demo
         ports:

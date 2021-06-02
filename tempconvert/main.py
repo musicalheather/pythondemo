@@ -20,15 +20,21 @@ def index():
         celsius = fahrenheit = kelvin = rankine = None
 
     return (
+        <!DOCTYPE html>
+        <html>
+        <head>
+        <title>"Welcome to Heather's Temperature Converter!"</title>
+        </head>
+        <body>
         """<form action="" method="get">
                 Celsius temperature: <input type=text name="celsius">
                 <input type="submit" value="Convert to Fahrenheit"><br>
                 Fahrenheit temperature: <input type=text name="fahrenheit">
                 <input type="submit" value="Convert to Celsius"><br>
                 Kelvin temperature: <input type=text name="Kelvin">
-                <input type="submit" value="Convert to Kelvin"><br>
-                Rankine temperature: <input type=text name="Rankine">
                 <input type="submit" value="Convert to Rankine"><br>
+                Rankine temperature: <input type=text name="Rankine">
+                <input type="submit" value="Convert to Kelvin"><br>
             </form>"""
         + "Fahrenheit: "
         + str(fahrenheit)
